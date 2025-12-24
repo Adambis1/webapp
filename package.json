@@ -1,10 +1,19 @@
 {
   "name": "WebApp",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "Configuration and mirroring application for netboot.xyz stack",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --testPathPatterns=unit",
+    "test:all": "jest",
+    "test:watch": "jest --watch --testPathPatterns=unit",
+    "test:coverage": "jest --coverage --testPathPatterns=unit",
+    "test:integration": "jest --testPathPatterns=integration",
+    "test:unit": "jest --testPathPatterns=unit",
+    "test:basic": "jest tests/unit/basic.test.js",
+    "test:safe": "jest tests/unit/basic.test.js tests/unit/socket-logic.test.js",
+    "test:debug": "jest --detectOpenHandles --verbose --no-cache",
+    "test:clean": "jest --clearCache"
   },
   "repository": {
     "type": "git",
@@ -17,12 +26,20 @@
     "ejs": "3.1.10",
     "express": "4.21.2",
     "http": "0.0.0",
-    "isbinaryfile": "5.0.4",
+    "isbinaryfile": "5.0.6",
     "js-yaml": "4.1.0",
     "node-downloader-helper": "2.1.9",
     "readdirp": "3.6.0",
     "node-fetch": "2.7.0",
     "socket.io": "4.8.1",
-    "systeminformation": "5.25.11"
+    "systeminformation": "5.27.10"
+  },
+  "devDependencies": {
+    "jest": "^30.0.0",
+    "supertest": "^7.0.0",
+    "socket.io-client": "^4.8.1",
+    "nock": "^14.0.0",
+    "@types/jest": "^30.0.0",
+    "mock-fs": "^5.2.0"
   }
 }
